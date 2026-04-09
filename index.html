@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Safron – Premium Kashmiri Saffron, Dry Fruits, Honey & Himalayan Herbs. Authentic, natural, and ethically sourced.">
+  <title>Safron – Premium Kashmiri Products</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Hero banner SVG backgrounds */
+    .slide-1 .banner-bg { background: linear-gradient(135deg, #1a0e05 0%, #5a2808 60%, #8b3a0e 100%); }
+    .slide-2 .banner-bg { background: linear-gradient(135deg, #0e1a05 0%, #1f3d08 60%, #2e5c0e 100%); }
+    .slide-3 .banner-bg { background: linear-gradient(135deg, #05101a 0%, #083040 60%, #0e4a5c 100%); }
+
+    /* Floating saffron animation */
+    @keyframes floatSaffron { 0%,100%{transform:translateY(0) rotate(-5deg)} 50%{transform:translateY(-12px) rotate(5deg)} }
+    .banner-image-float { animation: floatSaffron 4s ease-in-out infinite; }
+
+    /* Category emoji icons */
+    .cat-saffron  { font-size: 36px; }
+    .cat-dryfruits{ font-size: 36px; }
+    .cat-honey    { font-size: 36px; }
+    .cat-herbs    { font-size: 36px; }
+    
+    /* Promo strip */
+    .promo-strip {
+      background: var(--grad-gold);
+      color: #fff;
+      text-align: center;
+      padding: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .3px;
+    }
+    .promo-strip a { color: #fff; text-decoration: underline; margin-left: 8px; }
+    
+    /* Why us section */
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .why-card {
+      text-align: center;
+      padding: 32px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--gold); }
+    .why-icon { font-size: 40px; margin-bottom: 14px; }
+    .why-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .why-desc { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+    @media(max-width:768px){ .why-grid { grid-template-columns: 1fr; } }
+
+    /* Pagination styles */
+    .page-btn { padding:8px 14px; border:1.5px solid var(--border); border-radius:8px; font-size:14px; margin:4px; transition:var(--transition); }
+    .page-btn.active,.page-btn:hover { background:var(--gold); color:#fff; border-color:var(--gold); }
+  </style>
+</head>
+<body>
+
+<!-- ─── Promo strip ────────────────────────────────────────────────────────── -->
+<div class="promo-strip">
+  🚚 Free delivery on orders above ₹999 &nbsp;|&nbsp; 🌿 100% Natural &amp; Authentic
+  <a href="products.html">Shop Now →</a>
+</div>
+
+<!-- ─── Header ─────────────────────────────────────────────────────────────── -->
+<header class="header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="18" r="18" fill="#c8962a" opacity=".15"/>
+          <text x="18" y="24" text-anchor="middle" font-size="20" fill="#c8962a" font-weight="800">🌸</text>
+        </svg>
+        <div>
+          <span class="nav-logo-text">Safron</span>
+          <span class="nav-logo-sub">Kashmir's Finest</span>
+        </div>
+      </a>
+
+      <form class="nav-search search-form">
+        <input type="text" placeholder="Search saffron, dry fruits, honey…" name="q" autocomplete="off">
+        <button type="submit" class="nav-search-btn">🔍</button>
+      </form>
+
+      <div class="nav-actions">
+        <button class="nav-btn" id="searchToggle" title="Search" style="display:none">🔍</button>
+
+        <!-- Cart -->
+        <a href="cart.html" class="nav-btn" title="Cart" style="position:relative">
+          🛒
+          <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+        </a>
+
+        <!-- Login button (shown when not logged in) -->
+        <a href="login.html" class="btn btn-primary btn-sm" id="navLoginBtn">Login</a>
+
+        <!-- User menu (shown when logged in) -->
+        <div id="navUserWrap" class="d-none d-flex align-center gap-8">
+          <span class="nav-user-name" id="navUserName"></span>
+          <button class="nav-btn" id="logoutBtn" title="Logout">👤</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile search bar -->
+  <div class="d-none" id="mobileSearchBar" style="padding:8px 16px;background:rgba(0,0,0,.4)">
+    <form class="search-form" style="position:relative">
+      <input type="text" name="q" placeholder="Search products…" style="width:100%;padding:9px 40px 9px 14px;border-radius:50px;border:1px solid rgba(200,150,42,.3);background:rgba(255,255,255,.1);color:#fff;font-size:14px;outline:none">
+      <button type="submit" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--gold)">🔍</button>
+    </form>
+  </div>
+</header>
+
+<!-- ─── Hero Banner Slider ─────────────────────────────────────────────────── -->
+<section class="banner-slider" id="bannerSlider">
+  <!-- Slide 1 -->
+  <div class="banner-slide slide-1 active">
+    <div class="banner-bg"></div>
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <span class="banner-tag">✦ Kashmir's Finest</span>
+      <h1 class="banner-title">Pure Kashmiri<br><span>Mongra Saffron</span></h1>
+      <p class="banner-subtitle">Hand-picked from the heart of Pampore – the golden spice that transforms every dish into an experience.</p>
+      <a href="products.html?category=saffron" class="btn btn-primary btn-lg">Shop Saffron →</a>
+    </div>
+    <div style="position:absolute;right:8%;bottom:0;font-size:140px;opacity:.18;transform:rotate(15deg)" class="banner-image-float">🌸</div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="banner-slide slide-2">
+    <div class="banner-bg"></div>
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <span class="banner-tag">🍯 Pure &amp; Natural</span>
+      <h1 class="banner-title">Wild Forest<br><span>Himalayan Honey</span></h1>
+      <p class="banner-subtitle">Raw, unprocessed honey collected from wild bee colonies in pristine Himalayan forests. Rich in enzymes &amp; antioxidants.</p>
+      <a href="products.html?category=honey" class="btn btn-primary btn-lg">Shop Honey →</a>
+    </div>
+    <div style="position:absolute;right:8%;bottom:0;font-size:140px;opacity:.18;transform:rotate(-10deg)" class="banner-image-float">🍯</div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="banner-slide slide-3">
+    <div class="banner-bg"></div>
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <span class="banner-tag">🍵 Traditional Blend</span>
+      <h1 class="banner-title">Kashmiri<br><span>Kawa Tea</span></h1>
+      <p class="banner-subtitle">A warming saffron-infused green tea blend with cardamom, cinnamon &amp; rose petals. Centuries of Kashmiri tradition in every cup.</p>
+      <a href="products.html?category=herbs-spices" class="btn btn-primary btn-lg">Shop Herbs →</a>
+    </div>
+    <div style="position:absolute;right:8%;bottom:0;font-size:140px;opacity:.18;transform:rotate(5deg)" class="banner-image-float">🍵</div>
+  </div>
+
+  <!-- Controls -->
+  <button class="banner-arrow banner-prev" id="bannerPrev">‹</button>
+  <button class="banner-arrow banner-next" id="bannerNext">›</button>
+  <div class="banner-controls" id="bannerDots">
+    <div class="banner-dot active" data-slide="0"></div>
+    <div class="banner-dot" data-slide="1"></div>
+    <div class="banner-dot" data-slide="2"></div>
+  </div>
+</section>
+
+<!-- ─── Trust Strip ────────────────────────────────────────────────────────── -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">🌿</div>
+        <div class="trust-label">100% Natural</div>
+        <div class="trust-sub">No additives</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">✅</div>
+        <div class="trust-label">Lab Tested</div>
+        <div class="trust-sub">Quality assured</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🚚</div>
+        <div class="trust-label">Fast Delivery</div>
+        <div class="trust-sub">PAN India</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔄</div>
+        <div class="trust-label">Easy Returns</div>
+        <div class="trust-sub">7-day policy</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Categories ─────────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Shop by <span>Category</span></h2>
+        <span class="section-line"></span>
+      </div>
+    </div>
+    <div class="categories-grid">
+      <a href="products.html?category=saffron" class="category-card">
+        <div class="category-icon"><span class="cat-saffron">🌸</span></div>
+        <div class="category-name">Saffron</div>
+        <div class="category-count">Mongra &amp; Laccha grades</div>
+      </a>
+      <a href="products.html?category=dry-fruits" class="category-card">
+        <div class="category-icon"><span class="cat-dryfruits">🌰</span></div>
+        <div class="category-name">Dry Fruits</div>
+        <div class="category-count">Almonds, Pista, Apricots</div>
+      </a>
+      <a href="products.html?category=honey" class="category-card">
+        <div class="category-icon"><span class="cat-honey">🍯</span></div>
+        <div class="category-name">Honey</div>
+        <div class="category-count">Wild Forest &amp; Acacia</div>
+      </a>
+      <a href="products.html?category=herbs-spices" class="category-card">
+        <div class="category-icon"><span class="cat-herbs">🌿</span></div>
+        <div class="category-name">Herbs &amp; Spices</div>
+        <div class="category-count">Kawa Tea, Shilajit</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Featured Products ──────────────────────────────────────────────────── -->
+<section class="section" style="background:linear-gradient(180deg,#fdf8f0,#fff)">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Featured <span>Products</span></h2>
+        <p class="section-subtitle">Handpicked bestsellers loved by thousands</p>
+        <span class="section-line"></span>
+      </div>
+      <a href="products.html" class="section-link">View All →</a>
+    </div>
+    <div class="products-grid" id="featuredProducts">
+      <!-- Skeletons while loading -->
+      <div class="skeleton skeleton-card"></div>
+      <div class="skeleton skeleton-card"></div>
+      <div class="skeleton skeleton-card"></div>
+      <div class="skeleton skeleton-card"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Why Choose Safron ──────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center" style="justify-content:center;flex-direction:column;align-items:center">
+      <h2 class="section-title">Why Choose <span>Safron?</span></h2>
+      <span class="section-line" style="margin:8px auto 0"></span>
+    </div>
+    <div class="why-grid" style="margin-top:28px">
+      <div class="why-card">
+        <div class="why-icon">🏔️</div>
+        <div class="why-title">Direct from Source</div>
+        <div class="why-desc">We work directly with farmers in Kashmir, Ladakh &amp; the Himalayas to bring you the freshest, most authentic products.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔬</div>
+        <div class="why-title">Lab-Tested Quality</div>
+        <div class="why-desc">Every batch is tested for purity, authenticity, and safety. ISO grade saffron with ISO/TS 3632 certification.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📦</div>
+        <div class="why-title">Premium Packaging</div>
+        <div class="why-desc">Products are carefully packed in airtight, food-grade packaging to preserve freshness, aroma, and potency.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Testimonials ───────────────────────────────────────────────────────── -->
+<section class="section" style="background:linear-gradient(180deg,#fff,#fdf8f0)">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">What Our <span>Customers Say</span></h2>
+        <span class="section-line"></span>
+      </div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">"The Mongra saffron is absolutely exceptional. The colour it gives to biryani is unmatched. I've tried many brands but Safron is genuinely authentic."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">P</div>
+          <div>
+            <div class="testimonial-name">Priya Sharma</div>
+            <div class="testimonial-loc">⭐⭐⭐⭐⭐ Mumbai</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Ordered the Kawa Tea and Wild Forest Honey. Both are incredible. The honey has a deep complex flavour unlike anything from the supermarket."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">R</div>
+          <div>
+            <div class="testimonial-name">Rahul Mehta</div>
+            <div class="testimonial-loc">⭐⭐⭐⭐⭐ Delhi</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Fast delivery, beautiful packaging, and the quality speaks for itself. The Kashmiri almonds are so fresh and sweet. Will definitely reorder."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">Ayesha Khan</div>
+            <div class="testimonial-loc">⭐⭐⭐⭐⭐ Bengaluru</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ─────────────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Safron</div>
+        <p class="footer-desc">Premium Kashmiri saffron and natural Himalayan products, ethically sourced directly from the farmers. Bringing the finest of Kashmir to your doorstep.</p>
+        <div class="footer-socials" style="margin-top:16px">
+          <a href="#" class="footer-social">📘</a>
+          <a href="#" class="footer-social">📸</a>
+          <a href="#" class="footer-social">🐦</a>
+          <a href="#" class="footer-social">▶️</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">All Products</a></li>
+          <li><a href="products.html?category=saffron">Saffron</a></li>
+          <li><a href="products.html?category=dry-fruits">Dry Fruits</a></li>
+          <li><a href="products.html?category=honey">Honey</a></li>
+          <li><a href="products.html?category=herbs-spices">Herbs &amp; Spices</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Customer Care</div>
+        <ul class="footer-links">
+          <li><a href="login.html">My Account</a></li>
+          <li><a href="cart.html">My Cart</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns &amp; Refunds</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contact Us</div>
+        <ul class="footer-contact">
+          <li><span class="icon">📍</span> Pampore, Pulwama, J&amp;K – 192121</li>
+          <li><span class="icon">📞</span> +91 98765 43210</li>
+          <li><span class="icon">✉️</span> hello@safron.in</li>
+          <li><span class="icon">🕐</span> Mon–Sat: 9 AM – 7 PM IST</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Safron. All rights reserved.</span>
+      <span>Made with ❤️ in Kashmir</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// Banner slider
+(function () {
+  const slides = document.querySelectorAll('.banner-slide');
+  const dots   = document.querySelectorAll('.banner-dot');
+  let current  = 0;
+  let timer;
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function autoPlay() {
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  document.getElementById('bannerPrev')?.addEventListener('click', () => { clearInterval(timer); goTo(current - 1); autoPlay(); });
+  document.getElementById('bannerNext')?.addEventListener('click', () => { clearInterval(timer); goTo(current + 1); autoPlay(); });
+  dots.forEach(d => d.addEventListener('click', () => { clearInterval(timer); goTo(+d.dataset.slide); autoPlay(); }));
+  autoPlay();
+})();
+
+// Load featured products
+(async function () {
+  try {
+    const data = await api.get('api/products.php?action=featured&limit=8');
+    const grid = document.getElementById('featuredProducts');
+    if (grid && data.products) {
+      grid.innerHTML = data.products.map(buildProductCard).join('');
+    }
+  } catch (e) {
+    const grid = document.getElementById('featuredProducts');
+    if (grid) grid.innerHTML = '';
+  }
+})();
+</script>
+</body>
+</html>

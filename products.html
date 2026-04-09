@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products – Safron</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .sort-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .sort-select {
+      padding: 8px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 50px;
+      font-size: 13px;
+      color: var(--text);
+      background: #fff;
+      cursor: pointer;
+      outline: none;
+    }
+    #pagination { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 32px; }
+    .page-btn { padding:8px 14px; border:1.5px solid var(--border); border-radius:8px; font-size:14px; margin:4px; background:#fff; cursor:pointer; transition:var(--transition); }
+    .page-btn.active, .page-btn:hover { background:var(--gold); color:#fff; border-color:var(--gold); }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo">
+        <span style="font-size:26px">🌸</span>
+        <div>
+          <span class="nav-logo-text">Safron</span>
+          <span class="nav-logo-sub">Kashmir's Finest</span>
+        </div>
+      </a>
+      <form class="nav-search search-form">
+        <input type="text" name="q" placeholder="Search products…" id="searchInput" autocomplete="off">
+        <button type="submit" class="nav-search-btn">🔍</button>
+      </form>
+      <div class="nav-actions">
+        <a href="cart.html" class="nav-btn" style="position:relative">🛒<span class="cart-badge" id="cartBadge" style="display:none">0</span></a>
+        <a href="login.html" class="btn btn-primary btn-sm" id="navLoginBtn">Login</a>
+        <div id="navUserWrap" class="d-none d-flex align-center gap-8">
+          <span class="nav-user-name" id="navUserName"></span>
+          <button class="nav-btn" id="logoutBtn">👤</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container">
+    <h1 id="pageTitle">All Products</h1>
+    <p id="pageSubtitle">Authentic Kashmiri products delivered to your door</p>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>/</span>
+      <span class="current" id="breadcrumbCurrent">Products</span>
+    </div>
+  </div>
+</div>
+
+<!-- Main Content -->
+<section class="section">
+  <div class="container">
+    <div class="products-layout">
+      <!-- Filters Sidebar -->
+      <aside class="filters-panel">
+        <div class="filter-title">🔎 Filters</div>
+
+        <div class="filter-group">
+          <div class="filter-group-title">Category</div>
+          <div id="categoryFilters">
+            <!-- Injected by JS -->
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text short"></div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-title">Sort By</div>
+          <select class="sort-select" id="sortSelect" style="width:100%;border-radius:8px">
+            <option value="default">Default</option>
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+            <option value="rating">Best Rated</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+      </aside>
+
+      <!-- Products -->
+      <div>
+        <div class="sort-bar">
+          <span class="text-muted" style="font-size:13px" id="resultCount">Loading products…</span>
+        </div>
+        <div class="products-grid" id="productsGrid">
+          <!-- Skeletons -->
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+        </div>
+        <div id="pagination"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <span>© 2024 Safron – Premium Kashmiri Products</span>
+      <div class="footer-socials">
+        <a href="#" class="footer-social">📘</a>
+        <a href="#" class="footer-social">📸</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/products.js"></script>
+<script>
+// Set search input from URL
+const q = new URLSearchParams(location.search).get('q');
+if (q) document.getElementById('searchInput').value = q;
+
+const cat = new URLSearchParams(location.search).get('category');
+if (cat) {
+  const titles = { saffron:'Saffron', 'dry-fruits':'Dry Fruits', honey:'Honey', 'herbs-spices':'Herbs & Spices' };
+  if (titles[cat]) {
+    document.getElementById('pageTitle').textContent = titles[cat];
+    document.getElementById('breadcrumbCurrent').textContent = titles[cat];
+  }
+}
+if (q) {
+  document.getElementById('pageTitle').textContent = `Search: "${q}"`;
+  document.getElementById('pageSubtitle').textContent = 'Search results';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#fdf3e3"/><stop offset="100%" style="stop-color:#f5e6c8"/></linearGradient></defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <text x="200" y="220" text-anchor="middle" font-size="120">🌺</text>
+  <text x="200" y="290" text-anchor="middle" font-size="20" font-family="sans-serif" fill="#c8962a" font-weight="600">Laccha Saffron</text>
+</svg>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product – Safron</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .product-tabs { display:flex; gap:0; border-bottom:2px solid var(--border); margin-bottom:24px; }
+    .product-tab  { padding:12px 20px; font-size:14px; font-weight:600; color:var(--text-muted); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-2px; transition:var(--transition); }
+    .product-tab.active { color:var(--gold); border-bottom-color:var(--gold); }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
+    .benefit-item { display:flex; gap:12px; align-items:flex-start; margin-bottom:14px; }
+    .benefit-icon { font-size:20px; flex-shrink:0; margin-top:2px; }
+    .benefit-text { font-size:14px; color:var(--text-light); line-height:1.6; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo">
+        <span style="font-size:26px">🌸</span>
+        <div>
+          <span class="nav-logo-text">Safron</span>
+          <span class="nav-logo-sub">Kashmir's Finest</span>
+        </div>
+      </a>
+      <form class="nav-search search-form">
+        <input type="text" name="q" placeholder="Search products…" autocomplete="off">
+        <button type="submit" class="nav-search-btn">🔍</button>
+      </form>
+      <div class="nav-actions">
+        <a href="cart.html" class="nav-btn" style="position:relative">🛒<span class="cart-badge" id="cartBadge" style="display:none">0</span></a>
+        <a href="login.html" class="btn btn-primary btn-sm" id="navLoginBtn">Login</a>
+        <div id="navUserWrap" class="d-none d-flex align-center gap-8">
+          <span class="nav-user-name" id="navUserName"></span>
+          <button class="nav-btn" id="logoutBtn">👤</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Breadcrumb -->
+<div style="background:#fdf8f0;border-bottom:1px solid var(--border);padding:10px 0">
+  <div class="container">
+    <div class="breadcrumb" style="justify-content:flex-start" id="breadcrumbProduct">
+      <a href="index.html">Home</a><span>/</span><span class="current">Product</span>
+    </div>
+  </div>
+</div>
+
+<!-- Product Detail -->
+<section class="section">
+  <div class="container" id="productWrap">
+    <div class="product-detail-layout">
+      <!-- Gallery -->
+      <div>
+        <div class="product-gallery-main" style="position:relative">
+          <img id="productMainImg" src="images/placeholder.svg" alt="Product">
+          <span id="productBadge" class="product-badge" style="display:none;position:absolute;top:16px;left:16px;font-size:14px;padding:6px 14px"></span>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div>
+        <div class="product-category" id="productCategory" style="font-size:13px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px"></div>
+        <h1 class="product-detail-name" id="productName"></h1>
+
+        <div class="product-rating" id="productRating" style="margin-bottom:12px"></div>
+
+        <div class="product-detail-price">
+          <span class="detail-price-current" id="productCurrentPrice"></span>
+          <span class="detail-price-original" id="productOrigPrice" style="display:none"></span>
+          <span class="detail-price-save" id="productSaving" style="display:none"></span>
+        </div>
+
+        <!-- Meta grid -->
+        <div class="product-detail-meta">
+          <div class="meta-item"><label>Origin</label><span id="productOrigin">—</span></div>
+          <div class="meta-item"><label>Weight</label><span id="productWeight">—</span></div>
+          <div class="meta-item"><label>SKU</label><span id="productSku">—</span></div>
+          <div class="meta-item"><label>Stock</label><span id="productStock">—</span></div>
+        </div>
+
+        <!-- Benefits -->
+        <div style="margin-bottom:20px">
+          <div class="benefit-item"><span class="benefit-icon">🌿</span><span class="benefit-text">100% Natural – No additives, preservatives, or artificial colours</span></div>
+          <div class="benefit-item"><span class="benefit-icon">✅</span><span class="benefit-text">Lab tested for purity and authenticity</span></div>
+          <div class="benefit-item"><span class="benefit-icon">📦</span><span class="benefit-text">Premium airtight packaging to preserve freshness</span></div>
+          <div class="benefit-item"><span class="benefit-icon">🚚</span><span class="benefit-text">Fast delivery across India. Free shipping on ₹999+</span></div>
+        </div>
+
+        <!-- Quantity + Actions -->
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px">
+          <div style="font-size:14px;font-weight:600">Quantity:</div>
+          <div class="qty-control">
+            <button class="qty-btn" id="qtyMinus">−</button>
+            <input type="number" id="qtyInput" class="qty-val" value="1" min="1" max="99" style="width:46px;border:none;text-align:center;font-size:16px;font-weight:700">
+            <button class="qty-btn" id="qtyPlus">+</button>
+          </div>
+        </div>
+
+        <div class="product-actions">
+          <button id="addToCartBtn" class="btn btn-outline">🛒 Add to Cart</button>
+          <button id="buyNowBtn" class="btn btn-primary">⚡ Buy Now</button>
+        </div>
+
+        <!-- Trust badges -->
+        <div style="display:flex;gap:16px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border);flex-wrap:wrap">
+          <span style="font-size:12px;color:var(--text-muted)">✅ Secure payment</span>
+          <span style="font-size:12px;color:var(--text-muted)">🔄 Easy returns</span>
+          <span style="font-size:12px;color:var(--text-muted)">🔒 Privacy protected</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div style="margin-top:48px">
+      <div class="product-tabs">
+        <button class="product-tab active" data-tab="description">Description</button>
+        <button class="product-tab" data-tab="reviews">Reviews</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-description">
+        <p id="productDescription" style="font-size:15px;color:var(--text-light);line-height:1.8"></p>
+      </div>
+      <div class="tab-panel" id="tab-reviews">
+        <div id="reviewsList">Loading reviews…</div>
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <div style="margin-top:48px">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">You May <span>Also Like</span></h2>
+          <span class="section-line"></span>
+        </div>
+      </div>
+      <div class="products-grid" id="relatedProducts"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <span>© 2024 Safron – Premium Kashmiri Products</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/product.js"></script>
+<script>
+// Tabs
+document.querySelectorAll('.product-tab').forEach(tab => {
+  tab.addEventListener('click', function () {
+    document.querySelectorAll('.product-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('tab-' + this.dataset.tab)?.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

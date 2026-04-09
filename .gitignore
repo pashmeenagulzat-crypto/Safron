@@ -1,0 +1,20 @@
+# Dependencies & build artifacts
+node_modules/
+vendor/
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+error_log
+
+# Environment / secrets
+.env
+config.local.php

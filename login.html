@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login – Safron</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="login">
+
+<div class="auth-page">
+  <div class="auth-card">
+    <!-- Logo -->
+    <div class="auth-logo">
+      <a href="index.html" class="auth-logo-text">🌸 Safron</a>
+      <div style="font-size:11px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:2px">Kashmir's Finest</div>
+    </div>
+
+    <h2 class="auth-title">Welcome back</h2>
+    <p class="auth-subtitle">Sign in to your account to continue</p>
+
+    <!-- Alert -->
+    <div class="alert" id="loginAlert" style="display:none"></div>
+
+    <form id="loginForm" novalidate>
+      <!-- Mobile -->
+      <div class="form-group">
+        <label class="form-label" for="loginMobile">Mobile Number</label>
+        <input
+          type="tel"
+          id="loginMobile"
+          name="mobile"
+          class="form-control"
+          placeholder="Enter 10-digit mobile number"
+          maxlength="10"
+          inputmode="numeric"
+          autocomplete="tel"
+        >
+        <div class="form-error" id="mobileError" style="display:none"></div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <label class="form-label" for="loginPassword">Password</label>
+          <a href="forgot-password.html" style="font-size:12px;color:var(--gold)">Forgot password?</a>
+        </div>
+        <div style="position:relative">
+          <input
+            type="password"
+            id="loginPassword"
+            name="password"
+            class="form-control"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+          >
+          <button type="button" id="togglePassword" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:16px">👁</button>
+        </div>
+        <div class="form-error" id="passwordError" style="display:none"></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block" style="margin-top:8px">🔓 Login</button>
+    </form>
+
+    <div class="auth-divider">or</div>
+
+    <div style="text-align:center">
+      <a href="products.html" style="font-size:13px;color:var(--text-muted)">👁 Browse as guest</a>
+    </div>
+
+    <div class="auth-switch">
+      Don't have an account? <a href="signup.html">Create one</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
