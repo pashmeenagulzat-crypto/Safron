@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout – Safron</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .payment-option {
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .payment-option:hover,
+    .payment-option.selected { border-color: var(--gold); background: rgba(200,150,42,.04); }
+    .payment-option input[type=radio] { accent-color: var(--gold); width: 18px; height: 18px; }
+    .payment-label { font-size: 14px; font-weight: 600; }
+    .payment-sub   { font-size: 12px; color: var(--text-muted); }
+    .step-indicator { display: flex; gap: 0; margin-bottom: 28px; }
+    .step { flex: 1; text-align: center; font-size: 12px; font-weight: 600; color: var(--text-muted); padding-bottom: 12px; border-bottom: 3px solid var(--border); transition: var(--transition); }
+    .step.active   { color: var(--gold); border-color: var(--gold); }
+    .step.done     { color: #27ae60; border-color: #27ae60; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo">
+        <span style="font-size:26px">🌸</span>
+        <div>
+          <span class="nav-logo-text">Safron</span>
+          <span class="nav-logo-sub">Kashmir's Finest</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <a href="cart.html" class="nav-btn" style="position:relative">🛒<span class="cart-badge" id="cartBadge" style="display:none">0</span></a>
+        <a href="login.html" class="btn btn-primary btn-sm" id="navLoginBtn">Login</a>
+        <div id="navUserWrap" class="d-none d-flex align-center gap-8">
+          <span class="nav-user-name" id="navUserName"></span>
+          <button class="nav-btn" id="logoutBtn">👤</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container">
+    <h1>Checkout</h1>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>/</span>
+      <a href="cart.html">Cart</a><span>/</span>
+      <span class="current">Checkout</span>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Step indicator -->
+    <div class="step-indicator">
+      <div class="step done">1. Cart</div>
+      <div class="step active">2. Details</div>
+      <div class="step">3. Confirm</div>
+    </div>
+
+    <div class="checkout-layout">
+      <!-- Form -->
+      <div>
+        <form id="checkoutForm" novalidate>
+          <!-- Shipping Info -->
+          <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px">
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:20px">🏠 Delivery Details</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div class="form-group" style="margin-bottom:0">
+                <label class="form-label">Full Name *</label>
+                <input type="text" name="fullname" class="form-control" placeholder="Your full name" autocomplete="name">
+              </div>
+              <div class="form-group" style="margin-bottom:0">
+                <label class="form-label">Mobile Number *</label>
+                <input type="tel" name="mobile" class="form-control" placeholder="10-digit mobile" maxlength="10" inputmode="numeric" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-group" style="margin-top:16px">
+              <label class="form-label">Email</label>
+              <input type="email" name="email" class="form-control" placeholder="your@email.com (optional)" autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Delivery Address *</label>
+              <textarea name="address" class="form-control" rows="3" placeholder="House/Flat no., Building, Street, Area…"></textarea>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+              <div class="form-group" style="margin-bottom:0">
+                <label class="form-label">City *</label>
+                <input type="text" name="city" class="form-control" placeholder="City">
+              </div>
+              <div class="form-group" style="margin-bottom:0">
+                <label class="form-label">State *</label>
+                <input type="text" name="state" class="form-control" placeholder="State">
+              </div>
+              <div class="form-group" style="margin-bottom:0">
+                <label class="form-label">Pincode *</label>
+                <input type="text" name="pincode" class="form-control" placeholder="6-digit pin" maxlength="6" inputmode="numeric">
+              </div>
+            </div>
+            <div class="form-group" style="margin-top:16px;margin-bottom:0">
+              <label class="form-label">Order Notes (optional)</label>
+              <textarea name="notes" class="form-control" rows="2" placeholder="Any special instructions…"></textarea>
+            </div>
+          </div>
+
+          <!-- Payment Method -->
+          <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px">
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:20px">💳 Payment Method</h3>
+
+            <label class="payment-option selected">
+              <input type="radio" name="payment_method" value="cod" checked>
+              <div>
+                <div class="payment-label">💵 Cash on Delivery</div>
+                <div class="payment-sub">Pay when your order arrives</div>
+              </div>
+            </label>
+
+            <label class="payment-option">
+              <input type="radio" name="payment_method" value="online">
+              <div>
+                <div class="payment-label">💳 Online Payment</div>
+                <div class="payment-sub">UPI, Credit/Debit Card, Net Banking</div>
+              </div>
+            </label>
+
+            <div id="onlinePayWrap" style="display:none;padding:16px;background:#fdf8f0;border-radius:var(--radius-sm);border:1px dashed var(--gold)">
+              <p style="font-size:13px;color:var(--text-muted);text-align:center">🔒 Secure payment gateway integration<br>(Connect Razorpay/PayU in production)</p>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">
+            🛒 Place Order
+          </button>
+        </form>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="order-summary" style="top:80px">
+        <div class="summary-title">Order Summary</div>
+        <div id="checkoutItems" style="margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:16px"></div>
+        <div class="summary-row"><span>Subtotal</span><span id="cSummarySubtotal">—</span></div>
+        <div class="summary-row"><span>Shipping</span><span id="cSummaryShipping">—</span></div>
+        <div class="summary-row total"><span>Total</span><span id="cSummaryTotal">—</span></div>
+        <div style="margin-top:16px;font-size:12px;color:var(--text-muted);text-align:center">
+          🔒 Secured &amp; encrypted checkout
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <span>© 2024 Safron – Premium Kashmiri Products</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

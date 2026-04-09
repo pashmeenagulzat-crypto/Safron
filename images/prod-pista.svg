@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f0fde3"/><stop offset="100%" style="stop-color:#d5e8b0"/></linearGradient></defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <text x="200" y="220" text-anchor="middle" font-size="120">🥜</text>
+  <text x="200" y="290" text-anchor="middle" font-size="20" font-family="sans-serif" fill="#6a8f2a" font-weight="600">Kesar Pista</text>
+</svg>

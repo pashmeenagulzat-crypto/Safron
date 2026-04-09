@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify OTP – Safron</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="verify-otp">
+
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <a href="index.html" class="auth-logo-text">🌸 Safron</a>
+    </div>
+
+    <div style="text-align:center;font-size:48px;margin-bottom:12px">📱</div>
+    <h2 class="auth-title" style="text-align:center">Verify Your Number</h2>
+    <p class="auth-subtitle" style="text-align:center">We've sent a 6-digit OTP to<br><strong id="otpMobileDisplay"></strong></p>
+
+    <!-- Demo OTP display (remove in production) -->
+    <div id="demoOtpInfo" class="alert alert-info" style="display:none;margin-bottom:0"></div>
+
+    <div class="alert" id="otpAlert" style="display:none;margin-top:12px"></div>
+
+    <form id="verifyOtpForm">
+      <div class="otp-inputs">
+        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="\d">
+        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="\d">
+        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="\d">
+        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="\d">
+        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="\d">
+        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="\d">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">✅ Verify</button>
+    </form>
+
+    <div style="text-align:center;margin-top:20px">
+      <span style="font-size:13px;color:var(--text-muted)">Didn't receive OTP?</span>
+      <button id="resendOtpBtn" style="margin-left:8px;font-size:13px;color:var(--gold);font-weight:600;background:none;border:none;cursor:pointer">Resend OTP</button>
+    </div>
+
+    <div class="auth-switch"><a href="signup.html">← Back to Signup</a></div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
