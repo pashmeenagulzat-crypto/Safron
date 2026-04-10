@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Safron – Premium Kashmiri Saffron Products. Buy authentic saffron directly from the farms of Pampore, Kashmir.">
+  <meta name="keywords" content="kashmiri saffron, kesar, pampore saffron, mongra saffron, buy saffron online">
+  <meta property="og:title" content="Safron – Authentic Kashmiri Saffron">
+  <meta property="og:description" content="Premium Kashmiri saffron, hand-picked from Pampore. Live product preview with image zoom.">
+  <title>Safron – Authentic Kashmiri Saffron</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ─────────────── HEADER ─────────────── -->
+<header class="site-header" role="banner">
+  <div class="container">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="#" class="navbar__logo" aria-label="Safron home">
+        <div class="navbar__logo-icon" aria-hidden="true">🌸</div>
+        <span class="navbar__logo-text">Saf<span>ron</span></span>
+      </a>
+
+      <ul class="navbar__nav" role="list">
+        <li><a href="#hero" data-section="hero" class="active">Home</a></li>
+        <li><a href="#productsSection" data-section="productsSection">Products</a></li>
+        <li><a href="#testimonialsSection" data-section="testimonialsSection">Reviews</a></li>
+        <li><a href="#checkoutSection" data-section="checkoutSection">Checkout</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <form class="search-form" id="searchForm" role="search" aria-label="Product search">
+          <button type="submit" aria-label="Search">🔍</button>
+          <input type="search" id="searchInput" placeholder="Search saffron…" autocomplete="off" aria-label="Search products">
+        </form>
+        <button class="cart-btn" id="cartBtn" aria-label="Open cart" aria-haspopup="dialog">
+          🛒 Cart
+          <span class="cart-badge" id="cartBadge" aria-live="polite" aria-atomic="true">0</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<!-- ─────────────── HERO ─────────────── -->
+<section class="hero" id="hero" aria-label="Hero">
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <span class="hero__subtitle">🌿 Farm-to-Doorstep</span>
+        <h1 class="hero__title">
+          The World's Finest<br>
+          <span>Kashmiri Saffron</span>
+        </h1>
+        <p class="hero__desc">
+          Hand-picked from the pristine Karewa fields of Pampore, Kashmir.
+          Certified organic, ISO 3632 tested, and delivered fresh to your door.
+        </p>
+        <div class="hero__actions">
+          <a href="#productsSection" class="btn btn-primary">Shop Now →</a>
+          <a href="#testimonialsSection" class="btn btn-outline" style="border-color:rgba(255,255,255,.5);color:#fff;">Read Reviews</a>
+        </div>
+        <div class="hero__stats">
+          <div>
+            <div class="hero__stat-value">500+</div>
+            <div class="hero__stat-label">Happy Customers</div>
+          </div>
+          <div>
+            <div class="hero__stat-value">ISO</div>
+            <div class="hero__stat-label">3632 Certified</div>
+          </div>
+          <div>
+            <div class="hero__stat-value">100%</div>
+            <div class="hero__stat-label">Pure & Natural</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__img-wrap">
+          <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=900&q=80"
+               alt="Kashmiri saffron threads" width="420" height="420">
+        </div>
+        <div class="hero__badge">
+          <span class="hero__badge-icon">🏆</span>
+          <div>
+            <strong>Mongra Grade</strong><br>
+            <small>Highest Quality</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─────────────── FEATURES STRIP ─────────────── -->
+<section class="features-strip" aria-label="Our guarantees">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-item__icon">🚚</div>
+        <div class="feature-item__title">Free Shipping</div>
+        <div class="feature-item__desc">On orders above ₹999</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__icon">🌿</div>
+        <div class="feature-item__title">100% Organic</div>
+        <div class="feature-item__desc">APEDA certified saffron</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__icon">🔒</div>
+        <div class="feature-item__title">Secure Payments</div>
+        <div class="feature-item__desc">Safe & encrypted checkout</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__icon">↩️</div>
+        <div class="feature-item__title">Easy Returns</div>
+        <div class="feature-item__desc">7-day hassle-free returns</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─────────────── PRODUCTS ─────────────── -->
+<section class="products-section" id="productsSection" aria-label="Products">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">🌸 Our Collection</span>
+      <h2>Premium Saffron Products</h2>
+      <p>Each product is hand-picked, lab-tested, and packed with care from Kashmir.</p>
+    </div>
+
+    <!-- Category filters -->
+    <div class="filters" role="group" aria-label="Filter by category">
+      <button class="filter-btn active" data-cat="all">All Products</button>
+      <!-- Categories injected by JS -->
+      <span id="categoryFilters" style="display:contents"></span>
+    </div>
+
+    <!-- Products grid – populated by JS -->
+    <div class="products-grid" id="productsGrid" aria-live="polite" aria-busy="true">
+      <!-- Skeleton placeholders rendered by JS -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ─────────────── TESTIMONIALS ─────────────── -->
+<section class="testimonials-section" id="testimonialsSection" aria-label="Customer reviews">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">⭐ Reviews</span>
+      <h2>What Our Customers Say</h2>
+      <p>Trusted by home cooks, professional chefs, and wellness enthusiasts across India.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"The Mongra saffron is absolutely exceptional. A tiny pinch transformed my biryani into something magical. Will never buy from elsewhere!"</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar">A</div>
+          <div>
+            <div class="testimonial-card__name">Ayesha Khan</div>
+            <div class="testimonial-card__location">Mumbai, India</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"Ordered the Royal Hamper as a wedding gift – packaging was stunning and quality outstanding. The live preview helped me choose perfectly!"</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar">R</div>
+          <div>
+            <div class="testimonial-card__name">Rohan Sharma</div>
+            <div class="testimonial-card__location">Delhi, India</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"The saffron & cardamom blend is perfect for my morning milk. Delivery was fast and the aroma is heavenly. Highly recommend Safron!"</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar">P</div>
+          <div>
+            <div class="testimonial-card__name">Priya Nair</div>
+            <div class="testimonial-card__location">Bengaluru, India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─────────────── CHECKOUT ─────────────── -->
+<section class="checkout-section container" id="checkoutSection" aria-label="Checkout">
+  <div class="section-head">
+    <span class="section-tag">🛍️ Checkout</span>
+    <h2>Complete Your Order</h2>
+  </div>
+  <div class="checkout-grid">
+    <!-- Shipping form -->
+    <form class="checkout-form" id="checkoutForm" novalidate>
+      <h3 style="margin-bottom:24px;font-size:1.1rem">Shipping Details</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="co-name">Full Name <span style="color:var(--color-error)">*</span></label>
+          <input type="text" id="co-name" name="name" placeholder="Ayesha Khan" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="co-email">Email <span style="color:var(--color-error)">*</span></label>
+          <input type="email" id="co-email" name="email" placeholder="ayesha@example.com" required autocomplete="email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="co-phone">Phone <span style="color:var(--color-error)">*</span></label>
+        <input type="tel" id="co-phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label for="co-address">Address <span style="color:var(--color-error)">*</span></label>
+        <input type="text" id="co-address" name="address" placeholder="Flat 4B, Green Valley Apartments" required autocomplete="street-address">
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="co-city">City <span style="color:var(--color-error)">*</span></label>
+          <input type="text" id="co-city" name="city" placeholder="Mumbai" required autocomplete="address-level2">
+        </div>
+        <div class="form-group">
+          <label for="co-state">State <span style="color:var(--color-error)">*</span></label>
+          <input type="text" id="co-state" name="state" placeholder="Maharashtra" required autocomplete="address-level1">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="co-postal">Postal Code <span style="color:var(--color-error)">*</span></label>
+          <input type="text" id="co-postal" name="postal_code" placeholder="400001" required autocomplete="postal-code">
+        </div>
+        <div class="form-group">
+          <label for="co-country">Country</label>
+          <select id="co-country" name="country" autocomplete="country-name">
+            <option value="India" selected>India</option>
+            <option value="UAE">UAE</option>
+            <option value="UK">United Kingdom</option>
+            <option value="USA">United States</option>
+            <option value="Canada">Canada</option>
+            <option value="Australia">Australia</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="co-notes">Order Notes (optional)</label>
+        <input type="text" id="co-notes" name="notes" placeholder="Any special instructions…">
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">🛒 Place Order</button>
+    </form>
+
+    <!-- Order summary -->
+    <div class="order-summary-box" aria-label="Order summary">
+      <h3 style="margin-bottom:20px;font-size:1.05rem">Order Summary</h3>
+      <div class="order-summary-items" id="orderSummaryItems">
+        <p class="text-muted" style="font-size:.85rem">Add products to cart to see summary.</p>
+      </div>
+      <div class="cart-totals">
+        <div class="cart-total-row"><span>Subtotal</span><span id="cartSubtotal">₹0</span></div>
+        <div class="cart-total-row"><span>Shipping</span><span id="cartShipping">₹0</span></div>
+        <div class="cart-total-row grand"><span>Total</span><span id="cartTotal">₹0</span></div>
+      </div>
+      <p class="cart-shipping-note" id="cartShippingNote" style="margin-top:10px"></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─────────────── FOOTER ─────────────── -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="navbar__logo" style="margin-bottom:12px">
+          <div class="navbar__logo-icon" aria-hidden="true">🌸</div>
+          <span class="navbar__logo-text" style="color:#fff">Saf<span>ron</span></span>
+        </div>
+        <p>Premium Kashmiri Saffron sourced directly from the farmers of Pampore, Kashmir. Bringing you the world's finest saffron since 2020.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul role="list">
+          <li><a href="#productsSection">All Products</a></li>
+          <li><a href="#productsSection">Pure Saffron</a></li>
+          <li><a href="#productsSection">Gift Sets</a></li>
+          <li><a href="#productsSection">Saffron Blends</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul role="list">
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Certifications</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul role="list">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Safron. All rights reserved.</span>
+      <span>Made with ❤️ in Kashmir</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ─────────────── LIVE PREVIEW MODAL ─────────────── -->
+<div class="modal-overlay" id="previewOverlay" role="dialog" aria-modal="true" aria-labelledby="previewName">
+  <div class="modal" id="previewModal">
+    <button class="modal__close" id="previewClose" aria-label="Close preview">✕</button>
+    <div class="modal__inner">
+
+      <!-- Gallery (left) -->
+      <div class="modal__gallery">
+        <div class="modal__main-img" id="previewMainImgWrap" title="Hover to zoom">
+          <img id="previewMainImg" src="" alt="Product preview" loading="eager">
+          <span class="modal__zoom-hint" id="zoomHint" aria-hidden="true">🔍 Hover to zoom</span>
+        </div>
+        <div class="modal__thumbnails" id="previewThumbs" role="list" aria-label="Product images"></div>
+      </div>
+
+      <!-- Details (right) -->
+      <div class="modal__details">
+        <div class="modal__category" id="previewCategory"></div>
+        <h2 class="modal__name" id="previewName"></h2>
+
+        <div class="modal__price-row">
+          <span class="modal__price" id="previewPrice"></span>
+          <span class="modal__compare" id="previewCompare" style="display:none"></span>
+          <span class="modal__save" id="previewSave" style="display:none"></span>
+        </div>
+
+        <p class="modal__desc" id="previewDesc"></p>
+
+        <div class="modal__meta" aria-label="Product details">
+          <div class="modal__meta-item">
+            <label>Grade</label>
+            <span id="previewGrade">—</span>
+          </div>
+          <div class="modal__meta-item">
+            <label>Origin</label>
+            <span id="previewOrigin">Kashmir, India</span>
+          </div>
+          <div class="modal__meta-item">
+            <label>Net Weight</label>
+            <span id="previewWeight">—</span>
+          </div>
+          <div class="modal__meta-item">
+            <label>Availability</label>
+            <span id="previewStock">—</span>
+          </div>
+        </div>
+
+        <!-- Qty + Add to Cart -->
+        <div class="modal__qty-row">
+          <div class="qty-stepper" role="group" aria-label="Quantity">
+            <button id="previewQtyMinus" aria-label="Decrease quantity">−</button>
+            <input type="number" id="previewQty" value="1" min="1" max="99" aria-label="Quantity">
+            <button id="previewQtyPlus" aria-label="Increase quantity">+</button>
+          </div>
+          <button class="btn btn-primary modal__add-btn" id="previewAddBtn">
+            🛒 Add to Cart
+          </button>
+        </div>
+
+        <!-- Trust badges -->
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px">
+          <span style="font-size:.78rem;color:var(--color-muted)">✅ Authentic &amp; Lab Tested</span>
+          <span style="font-size:.78rem;color:var(--color-muted)">🚚 Fast Delivery</span>
+          <span style="font-size:.78rem;color:var(--color-muted)">↩️ Easy Returns</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ─────────────── CART SIDEBAR ─────────────── -->
+<div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+<aside class="cart-sidebar" id="cartSidebar" role="dialog" aria-modal="true" aria-label="Shopping cart">
+  <div class="cart-sidebar__head">
+    <h3>🛒 Your Cart</h3>
+    <button class="cart-sidebar__close" id="cartSidebarClose" aria-label="Close cart">✕</button>
+  </div>
+  <div class="cart-sidebar__body" id="cartBody">
+    <div class="cart-empty">
+      <div class="cart-empty__icon">🛒</div>
+      <p>Your cart is empty.</p>
+    </div>
+  </div>
+  <div class="cart-sidebar__footer">
+    <div class="cart-totals">
+      <div class="cart-total-row"><span>Subtotal</span><span id="cartSubtotalSide">₹0</span></div>
+      <div class="cart-total-row"><span>Shipping</span><span id="cartShippingSide">₹0</span></div>
+      <div class="cart-total-row grand"><span>Total</span><span id="cartTotalSide">₹0</span></div>
+    </div>
+    <p class="cart-shipping-note" id="cartShippingNote" style="font-size:.78rem;text-align:center"></p>
+    <button class="btn btn-primary btn-full" id="goCheckoutBtn" disabled>
+      Proceed to Checkout →
+    </button>
+  </div>
+</aside>
+
+
+<!-- ─────────────── TOAST ─────────────── -->
+<div class="toast-wrap" id="toastWrap" aria-live="assertive" aria-atomic="false"></div>
+
+
+<!-- ─────────────── SCROLL TOP ─────────────── -->
+<button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
+
+<!-- ─────────────── SCRIPTS ─────────────── -->
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
