@@ -63,7 +63,7 @@ if (empty($lineItems)) {
     errorResponse('No valid products in cart');
 }
 
-$shipping = ($subtotal < 999) ? 99.0 : 0.0;
+$shipping = ($subtotal < FREE_SHIPPING_THRESHOLD) ? SHIPPING_COST : 0.0;
 $total    = $subtotal + $shipping;
 $orderNum = 'ORD-' . strtoupper(substr(md5(uniqid('', true)), 0, 8));
 

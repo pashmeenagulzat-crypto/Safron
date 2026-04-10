@@ -7,6 +7,10 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
 
+// Shipping configuration
+define('FREE_SHIPPING_THRESHOLD', 999.00);   // Order subtotal above which shipping is free
+define('SHIPPING_COST', 99.00);               // Flat shipping cost when below threshold
+
 function getDB(): PDO {
     static $pdo = null;
     if ($pdo === null) {

@@ -40,7 +40,7 @@ function cartSummary(PDO $db): array {
             ];
         }
     }
-    $shipping = ($subtotal > 0 && $subtotal < 999) ? 99.0 : 0.0;
+    $shipping = ($subtotal > 0 && $subtotal < FREE_SHIPPING_THRESHOLD) ? SHIPPING_COST : 0.0;
     return [
         'items'     => $items,
         'count'     => array_sum($_SESSION['cart']),

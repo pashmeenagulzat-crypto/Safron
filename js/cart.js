@@ -5,6 +5,8 @@
 
 import { showToast } from './app.js';
 
+const FREE_SHIPPING_THRESHOLD = 999; // keep in sync with api/config.php
+
 const sidebar        = document.getElementById('cartSidebar');
 const sidebarOverlay = document.getElementById('sidebarOverlay');
 const cartBody       = document.getElementById('cartBody');
@@ -191,7 +193,7 @@ function renderTotals() {
   if (coTotal)      coTotal.textContent      = totalText;
 
   const noteText = cartData.shipping > 0
-    ? `Add ${fmt(999 - cartData.subtotal)} more for free shipping!`
+    ? `Add ${fmt(FREE_SHIPPING_THRESHOLD - cartData.subtotal)} more for free shipping!`
     : '🎉 You qualify for free shipping!';
   document.querySelectorAll('.cart-shipping-note').forEach(el => { el.textContent = noteText; });
 
