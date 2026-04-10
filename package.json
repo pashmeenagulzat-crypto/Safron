@@ -1,0 +1,9 @@
+{
+  "name": "safron",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kashmiri Saffron eCommerce – static frontend build",
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}
