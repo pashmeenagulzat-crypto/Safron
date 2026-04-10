@@ -44,10 +44,12 @@ function initLogin() {
         Auth.save(data.user);
         showToast('Welcome back, ' + data.user.name.split(' ')[0] + '!', 'success');
         setTimeout(() => {
-          // Only allow relative paths to prevent open-redirect / XSS
+          // Restrict to relative paths only – reject protocol-relative, encoded
+          // slashes, and anything containing scheme indicators to prevent
+          // open-redirect and XSS exploitation.
           const raw = new URLSearchParams(location.search).get('redirect') || '';
-          const safe = /^[a-zA-Z0-9_\-./]+\.html(\?[^<>"]*)?$/.test(raw) ? raw : 'index.html';
-          location.href = safe;
+          const safe = /^\/[a-zA-Z0-9_\-./]*$/.test(raw) ? raw : '/';
+          location.assign(safe);
         }, 800);
       } else {
         showAlert('loginAlert', data.message, 'error');

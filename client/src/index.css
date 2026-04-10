@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-saffron-bg text-saffron-text font-sans;
+    overflow-x: hidden;
+  }
+  * { box-sizing: border-box; }
+}
+
+@layer components {
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-sm text-white bg-grad-gold shadow-gold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-gold-lg disabled:opacity-60 disabled:pointer-events-none;
+  }
+  .btn-outline-gold {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-sm border-2 border-gold-500 text-gold-500 bg-transparent transition-all duration-200 hover:bg-gold-500 hover:text-white;
+  }
+  .card {
+    @apply bg-white border border-amber-100 rounded-2xl overflow-hidden transition-all duration-200;
+  }
+  .form-input {
+    @apply w-full px-4 py-3 border-2 border-amber-100 rounded-xl text-sm text-saffron-text bg-white outline-none transition-all duration-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/10;
+  }
+  .section-title {
+    @apply text-2xl md:text-3xl font-extrabold text-saffron-text;
+  }
+  .skeleton {
+    @apply rounded-xl;
+    background: linear-gradient(90deg, #f0e6d0 25%, #f8f0e0 50%, #f0e6d0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+  }
+}
+
+@layer utilities {
+  .bg-grad-gold {
+    background: linear-gradient(135deg, #c8962a 0%, #e8b84b 50%, #c8962a 100%);
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #c8962a 0%, #e8b84b 50%, #c8962a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}

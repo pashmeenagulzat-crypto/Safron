@@ -1,6 +1,8 @@
 # Dependencies & build artifacts
 node_modules/
 vendor/
+client/node_modules/
+client/dist/
 
 # IDE
 .vscode/
